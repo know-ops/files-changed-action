@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 FILES=$1
 echo "::debug file=entrypoint.sh,line=4::${FILES}"
