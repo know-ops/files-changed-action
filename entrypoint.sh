@@ -10,11 +10,11 @@ echo "::debug file=entrypoint.sh,line=9::cd ${GITHUB_WORKSPACE}"
 cd ${GITHUB_WORKSPACE}
 if [ "${REGEX}" != "" ]; then
   echo "::debug file=entrypoint.sh,line=12::getting files and filtering"
-  export FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD~1 HEAD | grep -e "${REGEX}") | tr ' ' ',')
+  export FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD^ HEAD | grep -e "${REGEX}") | tr ' ' ',')
 
 else
   echo "::debug file=entrypoint.sh,line=16::getting files"
-  export FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD~1 HEAD) | tr ' ' ',')
+  export FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD^ HEAD) | tr ' ' ',')
 
 fi
 
