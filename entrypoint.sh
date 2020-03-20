@@ -7,7 +7,7 @@ if [ "${REGEX}" != "" ]; then
   FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD~1 HEAD | grep -e "${REGEX}") | tr ' ' ',')
 
 else
-  FILES=$(echo -n $(git diff --name-only --diff-filter=$1 HEAD~1 HEAD) | tr ' ' ',')
+  FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD~1 HEAD) | tr ' ' ',')
 
 fi
 
