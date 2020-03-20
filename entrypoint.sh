@@ -15,7 +15,7 @@ if [ "${REGEX}" != "" ]; then
 
 else
   echo "::debug file=entrypoint.sh,line=17::getting files"
-  echo "::debug file=entrypoint.sh,line=18::$(git diff --name-only --diff-filter=${FILES} HEAD^ HEAD)"
+  echo "::debug file=entrypoint.sh,line=18::`git diff --name-only --diff-filter=${FILES} HEAD^ HEAD`"
   export FILES=$(echo -n $(git diff --name-only --diff-filter=${FILES} HEAD^ HEAD) | tr ' ' ',')
 
 fi
